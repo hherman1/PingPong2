@@ -15,6 +15,10 @@ if (CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT)
 endif()
 
 
+set (SHADERS
+		resources/texture.vert
+		resources/texture.frag)
+
 set (SOURCEFILES 
 		src/main.cpp 
 		src/BaseApp.cpp 
@@ -31,7 +35,8 @@ set (SOURCEFILES
 		src/Line.cpp 
 		src/glad/src/glad.c
 		src/Clock.cpp
-		src/ModelRegistry.cpp)
+		src/ModelRegistry.cpp
+		src/Table.cpp)
 
 set (HEADERFILES 
 		src/BaseApp.h 
@@ -47,9 +52,11 @@ set (HEADERFILES
 		src/Cylinder.h 
 		src/Line.h
 		src/Clock.h
-		src/ModelRegistry.h)
+		src/ModelRegistry.h
+		src/Table.h)
 
 source_group("Header Files" FILES ${HEADERFILES})
+source_group("Shaders" FILES ${SHADERS})
 
 ############################################################
 #Start of library detection
