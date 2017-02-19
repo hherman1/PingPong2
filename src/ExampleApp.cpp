@@ -6,6 +6,7 @@ using namespace std;
 namespace basicgraphics {
 	ExampleApp::ExampleApp(int argc, char** argv, std::string windowName, int windowWidth, int windowHeight) : BaseApp(argc, argv, windowName, windowWidth, windowHeight)
 	{
+		ball = make_unique<Ball>();
 		_box.reset(new Box(vec3(-0.5, -0.5, -0.5), vec3(0.5, 0.5, 0.5), vec4(1.0, 0.0, 0.0, 1.0)));
         _angle = 0;
 	}
@@ -15,6 +16,7 @@ namespace basicgraphics {
 	void ExampleApp::onUpdate(chrono::milliseconds m) {
 		float seconds = m.count() / 1000.0;
 		_angle += radians(180.0) * seconds;
+		ball->update(m);
 		
 	}
 
@@ -46,12 +48,16 @@ namespace basicgraphics {
 
 		_box->draw(_shader, model);
 		table.draw(_shader, model);
+		ball->draw(_shader, model);
 	}
 
 	void ExampleApp::onEvent(shared_ptr<Event> event) {
 		string name = event->getName();
 		if (name == "kbd_ESC_down") {
 			glfwSetWindowShouldClose(_window, 1);
+		}
+		else if (name == "kbd_SPACE_down") {
+			ball->launch();
 		}
 		else {
 			cout << name << endl;

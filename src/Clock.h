@@ -13,6 +13,7 @@ namespace basicgraphics {
 		std::chrono::milliseconds tick(); // provides time since last tick
 
 	protected:
+		bool firstTick;
 		std::chrono::time_point<std::chrono::steady_clock> time;
 	};
 

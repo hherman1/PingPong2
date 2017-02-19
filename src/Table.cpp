@@ -5,7 +5,7 @@
 using namespace basicgraphics;
 
 Table::Table():
-	box(Box(vec3(-TABLE_WIDTH/2, TABLE_HEIGHT, -TABLE_LENGTH/2), vec3(TABLE_WIDTH/2, TABLE_HEIGHT + TABLE_DEPTH, TABLE_LENGTH/2), vec4(0, 1, 0, 1)))
+	box(Box(vec3(-TABLE_WIDTH/2, TABLE_HEIGHT, -TABLE_LENGTH/2), vec3(TABLE_WIDTH/2, TABLE_TOP, TABLE_LENGTH/2), vec4(0, 1, 0, 1)))
 {
 }
 

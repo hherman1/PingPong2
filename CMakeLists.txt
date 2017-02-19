@@ -31,12 +31,13 @@ set (SOURCEFILES
 		src/Box.cpp 
 		src/Sphere.cpp 
 		src/Cone.cpp 
-		src/Cylinder.cpp 
 		src/Line.cpp 
+		src/Cylinder.cpp 
 		src/glad/src/glad.c
 		src/Clock.cpp
 		src/ModelRegistry.cpp
-		src/Table.cpp)
+		src/Table.cpp
+		src/Ball.cpp)
 
 set (HEADERFILES 
 		src/BaseApp.h 
@@ -53,9 +54,10 @@ set (HEADERFILES
 		src/Line.h
 		src/Clock.h
 		src/ModelRegistry.h
-		src/Table.h)
+		src/Table.h
+		src/Ball.h)
 
-source_group("Header Files" FILES ${HEADERFILES})
+#source_group("Header Files" FILES ${HEADERFILES})
 source_group("Shaders" FILES ${SHADERS})
 
 ############################################################
@@ -281,7 +283,7 @@ include_directories(
   ${CMAKE_CURRENT_SOURCE_DIR}/src/glad/include
 )
 
-add_executable(Basic_Graphics ${SOURCEFILES} ${HEADERFILES})
+add_executable(Basic_Graphics ${SOURCEFILES} ${HEADERFILES} ${SHADERS})
 
 set_property(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} PROPERTY VS_STARTUP_PROJECT Basic_Graphics)
 set_target_properties(Basic_Graphics PROPERTIES VS_DEBUGGER_WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/Debug")

@@ -1,6 +1,7 @@
 
 #include "BaseApp.h"
 #include "Table.h"
+#include "Ball.h"
 
 namespace basicgraphics {
 
@@ -13,6 +14,7 @@ namespace basicgraphics {
 			std::unique_ptr<Box> _box;
 			float _angle;
 
+			std::unique_ptr<Ball> ball;
 
 			void onRenderGraphics() override;
 			void onUpdate(std::chrono::milliseconds m) override;

@@ -3,8 +3,9 @@
 
 namespace basicgraphics {
 
-	Clock::Clock():
-		time(std::chrono::steady_clock::now())
+	Clock::Clock() :
+		time(std::chrono::steady_clock::now()),
+		firstTick(true)
 	{
 	}
 
@@ -16,6 +17,12 @@ namespace basicgraphics {
 	{
 		auto old = time;
 		time = std::chrono::steady_clock::now();
-		return std::chrono::duration_cast<std::chrono::milliseconds>(time - old);
+		if (firstTick) {
+			firstTick = false;
+			return std::chrono::milliseconds(0);
+		}
+		else {
+			return std::chrono::duration_cast<std::chrono::milliseconds>(time - old);
+		}
 	}
 }
