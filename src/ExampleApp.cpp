@@ -20,6 +20,8 @@ namespace basicgraphics {
 
 	void ExampleApp::onRenderGraphics() {
 		// Setup the view matrix to set where the camera is located
+		Table table;
+
 		glm::vec3 eye_world = glm::vec3(0,0,5);
 		glm::mat4 view = glm::lookAt(eye_world, glm::vec3(0,0,0), glm::vec3(0,1,0));
 		
@@ -41,6 +43,7 @@ namespace basicgraphics {
 		
 
 		_box->draw(_shader, model);
+		table.draw(_shader, model);
 	}
 
 	void ExampleApp::onEvent(shared_ptr<Event> event) {

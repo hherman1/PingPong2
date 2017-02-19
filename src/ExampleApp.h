@@ -1,5 +1,6 @@
 
 #include "BaseApp.h"
+#include "Table.h"
 
 namespace basicgraphics {
 

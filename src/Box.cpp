@@ -8,12 +8,13 @@
 
 #include "Box.h"
 
+using namespace std;
+
 namespace basicgraphics {
 
 	Box::Box(const glm::vec3 &min, const glm::vec3 &max, const glm::vec4 &color) : _min(min), _max(max), _color(color)
 	{
 		_model = model_registry::fetchFile("cube.obj");
-		_model->setMaterialColor(color);
 		//_model.reset(new Model("cube.obj", 1.0, _color));
 
 		glm::vec3 extents = (max - min) / 2.0f;
@@ -32,7 +33,7 @@ namespace basicgraphics {
 	}
 
 	void Box::draw(GLSLProgram &shader, const glm::mat4 &modelMatrix) {
-
+		_model->setMaterialColor(_color);
 		glm::mat4 model = modelMatrix * _localMat;
 		shader.setUniform("model_mat", model);
 		_model->draw(shader);

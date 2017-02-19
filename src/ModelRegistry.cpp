@@ -13,14 +13,14 @@ namespace basicgraphics {
 		}
 		shared_ptr<Model> fetchFile(string filename) {
 			try {
-				shared_ptr<Model> m = fetch(filename);
+				return fetch(filename);
 			}
 			catch (out_of_range e) {
 				return loadFile(filename);
 			}
 		}
 		shared_ptr<Model> loadFile(string filename) {
-			shared_ptr<Model> m = shared_ptr<Model>(new Model(filename, 1.0, vec4(1, 1, 1, 1)));
+			shared_ptr<Model> m = make_shared<Model>(filename, 1.0, vec4(1, 1, 1, 1));
 			registry.insert(pair<string,shared_ptr<Model>>(filename, m));
 			return m;
 

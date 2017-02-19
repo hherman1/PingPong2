@@ -14,7 +14,6 @@ namespace basicgraphics {
 	{
 		//_model.reset(new Model("cylinder.obj", 1.0, _color));
 		_model = model_registry::fetchFile("cylinder.obj");
-		_model->setMaterialColor(color);
 
 
 		glm::vec3 direction = point2 - point1;
@@ -37,7 +36,7 @@ namespace basicgraphics {
 	}
 
 	void Cylinder::draw(GLSLProgram &shader, const glm::mat4 &modelMatrix) {
-
+		_model->setMaterialColor(_color);
 		glm::mat4 model = modelMatrix * _localMat;
 		shader.setUniform("model_mat", model);
 		_model->draw(shader);
