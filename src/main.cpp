@@ -7,6 +7,7 @@
 //
 
 #include <stdio.h>
+#include <iostream>
 
 #include "ExampleApp.h"
 

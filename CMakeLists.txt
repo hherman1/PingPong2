@@ -1,4 +1,4 @@
-project(Basic_Graphics)
+﻿project(Basic_Graphics)
 
 cmake_minimum_required (VERSION 2.8.2) 
 
@@ -238,12 +238,17 @@ if (WIN32)
 endif (WIN32)
 
 
+
 include_directories(
   ${CMAKE_CURRENT_SOURCE_DIR}/src
   ${CMAKE_CURRENT_SOURCE_DIR}/src/glad/include
 )
 
 add_executable(Basic_Graphics ${SOURCEFILES} ${HEADERFILES})
+
+set_property(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} PROPERTY VS_STARTUP_PROJECT Basic_Graphics)
+set_target_properties(Basic_Graphics PROPERTIES VS_DEBUGGER_WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/Debug")
+
 target_link_libraries(${PROJECT_NAME} ${GLFW_LIBRARY} ${ZLIB_LIBRARIES} ${ASSIMP_LIBRARY} ${SOIL_LIBRARY} ${OPENGL_LIBRARIES} ${LIBS_ALL})
 add_dependencies(${PROJECT_NAME} glfw assimp SOIL)
 
