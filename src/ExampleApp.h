@@ -14,6 +14,7 @@ namespace basicgraphics {
 
 
 			void onRenderGraphics() override;
+			void onUpdate(std::chrono::milliseconds m) override;
 			void onEvent(std::shared_ptr<Event> event) override;
 	};
 }

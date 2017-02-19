@@ -12,6 +12,12 @@ namespace basicgraphics {
 
 	ExampleApp::~ExampleApp() {}
 
+	void ExampleApp::onUpdate(chrono::milliseconds m) {
+		float seconds = m.count() / 1000.0;
+		_angle += radians(180.0) * seconds;
+		
+	}
+
 	void ExampleApp::onRenderGraphics() {
 		// Setup the view matrix to set where the camera is located
 		glm::vec3 eye_world = glm::vec3(0,0,5);
@@ -23,7 +29,7 @@ namespace basicgraphics {
 		glm::mat4 model = glm::mat4(1.0);
 
 		glm::mat4 rotate = glm::toMat4(glm::angleAxis(_angle, vec3(0, 1, 0))) * glm::toMat4(glm::angleAxis((float)radians(20.0), vec3(1.0, 0.0, 0.0)));
-		_angle += radians(1.0);
+		//_angle += radians(1.0);
 		model = rotate * model;
 
 		// Update shader variables

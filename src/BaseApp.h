@@ -9,6 +9,7 @@
 
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
+#include <chrono>
 
 #include <stdlib.h>
 #include <iostream>
@@ -29,6 +30,7 @@
 #include "Box.h"
 #include "Line.h"
 #include "Event.h"
+#include "Clock.h"
 
 namespace basicgraphics {
 
@@ -84,11 +86,17 @@ namespace basicgraphics {
 		int _windowXPos;
 		int _windowYPos;
 
+		Clock clock;
 
 		/*!
 		 * Called from the run loop. You should put any of your drawing code in this member function.
 		 */
 		virtual void onRenderGraphics();
+
+		/*!
+				* Update after every draw.
+				*/
+		virtual void onUpdate(std::chrono::milliseconds duration);
 
 		/*!
 		* Events are defined by a name stored as a std::string and some associated data.
