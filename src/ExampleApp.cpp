@@ -18,13 +18,15 @@ namespace basicgraphics {
 		_angle += radians(180.0) * seconds;
 		ball->update(m);
 		
+		
 	}
 
 	void ExampleApp::onRenderGraphics() {
 		// Setup the view matrix to set where the camera is located
 		Table table;
 
-		glm::vec3 eye_world = glm::vec3(0,TABLE_HEIGHT*1.5,TABLE_LENGTH/2 + 0.8);
+		glm::vec3 eye_world = glm::vec3(0,1.4,TABLE_FRONT + 1.4);
+		glm::vec3 lightPos = eye_world*2.0f + vec3(0,10,0);
 		glm::mat4 view = glm::lookAt(eye_world, glm::vec3(0,TABLE_HEIGHT,-TABLE_LENGTH/3), glm::vec3(0,1,0));
 		
 		// Setup the projection matrix so that things are rendered in perspective
@@ -41,7 +43,7 @@ namespace basicgraphics {
 		_shader.setUniform("projection_mat", projection);
 		_shader.setUniform("model_mat", model);
 		_shader.setUniform("eye_world", eye_world);
-		_shader.setUniform("lightPos", vec3(0,2*TABLE_HEIGHT,0));
+		_shader.setUniform("lightPos", lightPos);
 
 
 		
@@ -58,6 +60,10 @@ namespace basicgraphics {
 		}
 		else if (name == "kbd_SPACE_down") {
 			ball->launch();
+		}
+		else if (name == "mouse_pointer") {
+			mouse_pos = event->get2DData();
+
 		}
 		else {
 			cout << name << endl;

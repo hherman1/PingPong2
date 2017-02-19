@@ -7,6 +7,8 @@
 #define TABLE_HEIGHT 0.76 // meters
 #define TABLE_DEPTH 0.05 // meters
 #define TABLE_TOP (TABLE_HEIGHT + TABLE_DEPTH)
+#define TABLE_FRONT (TABLE_LENGTH/2)
+#define TABLE_BACK (-TABLE_LENGTH/2)	
 
 class Table
 {

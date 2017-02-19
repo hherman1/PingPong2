@@ -12,6 +12,7 @@ namespace basicgraphics {
 
 		private:
 			std::unique_ptr<Box> _box;
+			glm::vec2 mouse_pos;
 			float _angle;
 
 			std::unique_ptr<Ball> ball;
