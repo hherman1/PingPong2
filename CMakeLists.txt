@@ -30,7 +30,8 @@ set (SOURCEFILES
 		src/Cylinder.cpp 
 		src/Line.cpp 
 		src/glad/src/glad.c
-		src/Clock.cpp)
+		src/Clock.cpp
+		src/ModelRegistry.cpp)
 
 set (HEADERFILES 
 		src/BaseApp.h 
@@ -45,7 +46,8 @@ set (HEADERFILES
 		src/Cone.h 
 		src/Cylinder.h 
 		src/Line.h
-		src/Clock.h)
+		src/Clock.h
+		src/ModelRegistry.h)
 
 source_group("Header Files" FILES ${HEADERFILES})
 

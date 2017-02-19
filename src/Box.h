@@ -20,6 +20,8 @@
 #include <glm/glm/gtc/matrix_transform.hpp>
 #include <glm/glm/gtx/quaternion.hpp>
 
+#include "ModelRegistry.h"
+
 namespace basicgraphics {
 
 	class Box {
@@ -40,7 +42,7 @@ namespace basicgraphics {
 		bool contains(const glm::vec3 &position) const;
 
 	protected:
-		std::unique_ptr<Model> _model;
+		std::shared_ptr<Model> _model;
 		const glm::vec3 _min;
 		const glm::vec3 _max;
 		const glm::vec4 _color;

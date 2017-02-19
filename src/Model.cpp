@@ -67,6 +67,16 @@ namespace basicgraphics {
 		}
 	}
 
+	void Model::setMaterialColor(const glm::vec4 & color)
+	{
+		for (auto i = _meshes.begin(); i < _meshes.end(); i++) {
+			(*i)->setMaterialColor(color);
+			
+		}
+		_materialColor = color;
+		
+	}
+
 	void Model::importMesh(const std::string &filename, int &numIndices, const double scale/*=1.0*/)
 	{
 		if (_importer.get() == nullptr) {

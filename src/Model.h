@@ -59,6 +59,7 @@ namespace basicgraphics {
 
 		virtual void draw(GLSLProgram &shader);
 
+		void setMaterialColor(const glm::vec4 &color);
 
 	private:
 

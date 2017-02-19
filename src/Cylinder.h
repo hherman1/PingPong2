@@ -18,6 +18,8 @@
 #include <glm/glm/gtc/matrix_transform.hpp>
 #include <glm/glm/gtx/quaternion.hpp>
 
+#include "ModelRegistry.h"
+
 namespace basicgraphics {
 
 	class Cylinder {
@@ -32,7 +34,7 @@ namespace basicgraphics {
 		virtual void draw(GLSLProgram &shader, const glm::mat4 &modelMatrix);
 
 	protected:
-		std::unique_ptr<Model> _model;
+		std::shared_ptr<Model> _model;
 		const glm::vec3 _point1;
 		const glm::vec3 _point2;
 		glm::mat4 _localMat;

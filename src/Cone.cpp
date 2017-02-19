@@ -12,7 +12,8 @@ namespace basicgraphics {
 
 	Cone::Cone(const glm::vec3 &point1, const glm::vec3 &point2, const float radius, const glm::vec4 &color) : _point1(point1), _point2(point2), _radius(radius), _color(color)
 	{
-		_model.reset(new Model("cone.obj", 1.0, _color));
+		_model = model_registry::fetchFile("cone.obj");
+		_model->setMaterialColor(color);
 
 
 		glm::vec3 direction = point2 - point1;
