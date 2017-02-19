@@ -2,8 +2,7 @@
 
 in vec3 position_world, normal_world;
 uniform vec3 eye_world;
-
-vec3 lightPos = eye_world + vec3(-20, 20, 20);
+uniform vec3 lightPos;
 
 uniform int hasTexture;
 uniform vec4 materialColor;

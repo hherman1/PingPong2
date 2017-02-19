@@ -1,10 +1,11 @@
 #include "Table.h"
 
 
+
 using namespace basicgraphics;
 
 Table::Table():
-	box(Box(vec3(0, 0, 0), vec3(5, 5, 5), vec4(1, 1, 1, 1)))
+	box(Box(vec3(-TABLE_WIDTH/2, TABLE_HEIGHT, -TABLE_LENGTH/2), vec3(TABLE_WIDTH/2, TABLE_HEIGHT + TABLE_DEPTH, TABLE_LENGTH/2), vec4(0, 1, 0, 1)))
 {
 }
 

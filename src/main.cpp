@@ -18,7 +18,8 @@ int main(int argc, char** argv)
 	// Initialize freeimage library
 	//FreeImage_Initialise();
 
-	ExampleApp *app = new ExampleApp(argc, argv, "Basic Graphics Example", 1280, 720);
+	//ExampleApp *app = new ExampleApp(argc, argv, "Basic Graphics Example", 1280, 720);
+	ExampleApp *app = new ExampleApp(argc, argv, "Basic Graphics Example", 1920, 1080);
 	app->run();
 	delete app;
 
